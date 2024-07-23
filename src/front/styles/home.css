@@ -1,7 +1,11 @@
-/*
-    home.css: This website contains selectors only used in home.css
+.home{
+    background-color: rgb(101, 39, 182);
+    height: 100vh;
+}
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+.log-in-container{
+    height: 80vh;
+    width: 30rem;
+    background: linear-gradient(to top, #b4e8f1, #f6b3ff);
+    border-radius: 35px;
+}
