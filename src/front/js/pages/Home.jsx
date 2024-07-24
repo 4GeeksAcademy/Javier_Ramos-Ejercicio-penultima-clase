@@ -21,7 +21,7 @@ export const Home = () => {
 						<input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" />
 						<input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" />
 						<button type="submit" className="btn btn-primary fs-3 fw-bolder">Sign up</button>
-						<p className="text-secondary">¿Ya tienes una cuenta? <Link to="/login" className="text-danger fw-bold text-decoration-none">Logueate!</Link></p>
+						<p className="text-secondary pb-5">¿Ya tienes una cuenta? <Link to="/login" className="text-danger fw-bold text-decoration-none">Logueate!</Link></p>
 					</div>
 				</form>
 

@@ -10,6 +10,7 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import Privado from "./pages/Privado.jsx";
 
 //create your first component
 const Layout = () => {
@@ -26,6 +27,7 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Home />} path="/" />
                         <Route element={<LogIn />} path="/login" />
+                        <Route element={<Privado />} path="/private" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>

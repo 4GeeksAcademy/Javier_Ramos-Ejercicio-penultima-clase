@@ -24,7 +24,7 @@ def handle_hello():
 
 # Crea una ruta para autenticar a los usuarios y devolver el token JWT
 # La función create_access_token() se utiliza para generar el JWT
-@api.route("/token", methods=["POST", "GET"])
+@api.route("/login", methods=["POST", "GET"])
 def create_token():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
