@@ -27,9 +27,9 @@ export const LogIn = () => {
 				<p className="fs-2 mt-3">¡Hola de nuevo!</p>
 				<p className="text-secondary">Bienvenido otra vez</p>
 				<div>
-					<div class="d-flex flex-column justify-content-center gap-4 px-5 mt-4">
-						<input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1"  onChange={(e) => setEmail(e.target.value)} value={email}/>
-						<input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" onChange={(e) => setPassword(e.target.value)} value={password}/>
+					<div className="d-flex flex-column justify-content-center gap-4 px-5 mt-4">
+						<input type="email" className="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1"  onChange={(e) => setEmail(e.target.value)} value={email}/>
+						<input type="password" className="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" onChange={(e) => setPassword(e.target.value)} value={password}/>
 						<button onClick={() => logIn(email,password)} className="btn btn-primary fs-3 fw-bolder">Log In</button>
 						<p className="text-secondary pb-5">¿No tienes una cuenta? <Link to="/" className="text-danger fw-bold text-decoration-none">Regístrate!</Link></p>
 					</div>

@@ -1,0 +1,15 @@
+.private{
+    background-color: rgb(101, 39, 182);
+    height: 100vh;
+}
+
+.content-private{
+    width: 80rem;
+    background: linear-gradient(to top, #b4e8f1, #f6b3ff);
+    border-radius: 35px;
+}
+.sign-out{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}

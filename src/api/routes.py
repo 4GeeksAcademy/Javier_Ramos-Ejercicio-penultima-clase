@@ -6,6 +6,7 @@ from api.models import db, User
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+from werkzeug.security import generate_password_hash, check_password_hash
 
 api = Blueprint('api', __name__)
 
@@ -13,14 +14,31 @@ api = Blueprint('api', __name__)
 CORS(api)
 
 
-@api.route('/hello', methods=['POST', 'GET'])
-def handle_hello():
+@api.route("/signup", methods=["POST"])
+def create_user():
+    email = request.json.get("email", None)
+    password = request.json.get("password", None)
+    is_active = request.json.get("is_active", None)
 
-    response_body = {
-        "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
-    }
+    if not email or not password:
+        return jsonify({"msg": "Email y contraseña son requeridos"}), 400
 
-    return jsonify(response_body), 200
+    # Verificar si el usuario ya existe
+    user = User.query.filter_by(email=email).first()
+    if user:
+        return jsonify({"msg": "El usuario ya existe"}), 400
+
+    # Crear el usuario y guardar en la base de datos
+    # hashed_password = generate_password_hash(password)
+    new_user = User(email=email, password=password, is_active=is_active)
+    db.session.add(new_user)
+    db.session.commit()
+
+    # Crear un token de acceso
+    access_token = create_access_token(identity=new_user.id)
+
+    return jsonify({"msg": "Usuario creado exitosamente", "access_token": access_token}), 201
+
 
 # Crea una ruta para autenticar a los usuarios y devolver el token JWT
 # La función create_access_token() se utiliza para generar el JWT
