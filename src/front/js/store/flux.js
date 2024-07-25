@@ -78,7 +78,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			logOut: () => {
 				const store = getStore();
 				sessionStorage.removeItem("token");
-				setStore({ ...store, token: '' });
+				setStore({ ...store, token: '', email: '' });
 			},
 		}
 	};
