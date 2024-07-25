@@ -14,14 +14,19 @@ const Privado = () => {
         if (!store.token) {
             navigate('/login');
         }
-    }, [])
+    }, [store.token, navigate])
+
+    const logOut = () => {
+		actions.logOut();
+		navigate('/login');
+	}
 
     return (
         <>
 
             <div className="private d-flex justify-content-center align-items-center">
                 <div className="sign-out">
-                    <button className="btn btn-warning">Cerrar sesión</button>
+                    <button onClick={() => logOut()} className="btn btn-warning">Cerrar sesión</button>
                 </div>
                 <div className="content-private p-5">
                     <h1>Bienvenido, usuario</h1>
