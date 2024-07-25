@@ -37,7 +37,7 @@ def create_user():
     # Crear un token de acceso
     access_token = create_access_token(identity=new_user.id)
 
-    return jsonify({"msg": "Usuario creado exitosamente", "access_token": access_token}), 201
+    return jsonify({"msg": "Usuario creado exitosamente", "access_token": access_token, "email":user.email}), 201
 
 
 # Crea una ruta para autenticar a los usuarios y devolver el token JWT
@@ -56,7 +56,7 @@ def create_token():
     
     # Crea un nuevo token con el id de usuario dentro
     access_token = create_access_token(identity=user.id)
-    return jsonify({ "token": access_token, "user_id": user.id })
+    return jsonify({ "token": access_token, "user_id": user.id, "email":user.email })
 
 # Protege una ruta con jwt_required, bloquea las peticiones sin un JWT válido
 @api.route("/protected", methods=["GET"])
@@ -66,4 +66,4 @@ def protected():
     current_user_id = get_jwt_identity()
     user = User.query.get(current_user_id)
     
-    return jsonify({"id": user.id, "email": user.email }), 200
+    return jsonify({"id": user.id }), 200

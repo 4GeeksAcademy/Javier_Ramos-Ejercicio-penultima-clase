@@ -29,7 +29,7 @@ const Privado = () => {
                     <button onClick={() => logOut()} className="btn btn-warning">Cerrar sesión</button>
                 </div>
                 <div className="content-private p-5">
-                    <h1>Bienvenido, usuario</h1>
+                    <h1>Bienvenido, <span style={{color: "rgb(101, 39, 182)"}}>{store.email}</span></h1>
                     <hr />
                     <p className="fs-2">Este es tu panel privado</p>
                     <table className="table table-hover mt-4">

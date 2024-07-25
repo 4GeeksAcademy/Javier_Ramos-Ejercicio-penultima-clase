@@ -15,7 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 			],
 			token: sessionStorage.getItem("token") || null,
-			email: ''
+			email: sessionStorage.getItem("email") || null
 		},
 		actions: {
 			logIn: async (email, password) => {
@@ -31,7 +31,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (data.token) { 
 						// Guardar el token en sessionStorage
 						sessionStorage.setItem("token", data.token);
-						setStore({ ...store, token: data.token });
+						sessionStorage.setItem("email", data.email);
+						setStore({ ...store, token: data.token, email: data.email });
 						console.log("Success:", data);
 					} else {
 						console.error("Token no recibido:", data);
@@ -63,7 +64,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (data.access_token) {
 						// Guardar el token en sessionStorage
 						sessionStorage.setItem("token", data.access_token);
-						setStore({ ...store, token: data.access_token });
+						sessionStorage.setItem("email", data.email);
+						setStore({ ...store, token: data.access_token, email: data.email });
 						console.log("Success:", data);
 					} else {
 						console.error("Token no recibido:", data);
